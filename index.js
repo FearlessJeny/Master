@@ -150,7 +150,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (!localStorage.getItem('langAutoRedirect')) {
         const isHebrewBrowser = navigator.language.startsWith('he');
-        const isRootPage = location.pathname.endsWith('index.html') || location.pathname === '/';
+        const isRootPage = location.pathname === '/Master/' || location.pathname.endsWith('index.html');
+        
+        // const isRootPage = location.pathname.endsWith('index.html') || location.pathname === '/';
         
         if (isHebrewBrowser && isRootPage) {
             localStorage.setItem('langAutoRedirect', 'true');
