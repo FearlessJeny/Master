@@ -36,13 +36,13 @@ form.addEventListener("submit", async (e) => {
     timestamp: Date.now()
   };
 
-  const reviewRef = ref(db, 'reviews');
+  const reviewRef = ref(database, 'reviews');
   await push(reviewRef, newReview);
 
   form.reset();
 });
 
-const reviewRef = ref(db, 'reviews');
+const reviewRef = ref(database, 'reviews');
 onValue(reviewRef, (snapshot) => {
   const data = snapshot.val();
   display.innerHTML = '';
