@@ -11,8 +11,11 @@ const firebaseConfig = {
   appId: "1:955941878615:web:5fe67c3bfbccbcf86b1c12"
 };
 
-const app = initializeApp(firebaseConfig);
-const db = getDatabase(app);
+// const app = initializeApp(firebaseConfig);
+// const db = getDatabase(app);
+
+firebase.initializeApp(firebaseConfig);
+const database = firebase.database();
 
 const form = document.getElementById("retroReviewForm");
 const display = document.getElementById("retroReviews");
