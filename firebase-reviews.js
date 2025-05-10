@@ -14,8 +14,8 @@ const firebaseConfig = {
 // const app = initializeApp(firebaseConfig);
 // const db = getDatabase(app);
 
-firebase.initializeApp(firebaseConfig);
-const database = firebase.database();
+const app = initializeApp(firebaseConfig);
+const database = getDatabase(app);
 
 const form = document.getElementById("retroReviewForm");
 const display = document.getElementById("retroReviews");
