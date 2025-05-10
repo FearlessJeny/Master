@@ -123,19 +123,15 @@ slider.addEventListener('touchend', e => {
 document.addEventListener('DOMContentLoaded', () => {
     const langSelect = document.getElementById('langSelect');
 
-
     // Определяем язык по URL
-
     const currentLang = location.pathname.includes('-he') ? 'he' : 'ru';
 
-    
     // Установка значения select, если он существует
-
     if (langSelect) {
         langSelect.value = currentLang;
 
         langSelect.addEventListener('change', () => {
-            const selectLang =langSelect.value;
+            const selectLang = langSelect.value;
             if (selectLang === 'he') {
                 window.location.href = 'index-he.html';
             } else {
@@ -144,26 +140,60 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-
-
-    // Автоматическое перенаправление на иврит, если браузер he и находимся в ru
-
+    // Автоматическое перенаправление на иврит, если браузер he и мы на главной
     if (!localStorage.getItem('langAutoRedirect')) {
         const isHebrewBrowser = navigator.language.startsWith('he');
+        const isRootPage =
+            location.pathname === '/Master/' ||
+            location.pathname.endsWith('index.html');
 
-    const isRootPage = location.pathname.endsWith('/') || location.pathname.endsWith('index.html');
-
-        
-        // const isRootPage = location.pathname === '/Master/' || location.pathname.endsWith('index.html');
-        
-        // const isRootPage = location.pathname.endsWith('index.html') || location.pathname === '/';
-        
         if (isHebrewBrowser && isRootPage) {
             localStorage.setItem('langAutoRedirect', 'true');
             window.location.href = 'index-he.html';
         }
     }
 });
+
+
+// document.addEventListener('DOMContentLoaded', () => {
+//     const langSelect = document.getElementById('langSelect');
+
+
+//     // Определяем язык по URL
+
+//     const currentLang = location.pathname.includes('-he') ? 'he' : 'ru';
+
+    
+//     // Установка значения select, если он существует
+
+//     if (langSelect) {
+//         langSelect.value = currentLang;
+
+//         langSelect.addEventListener('change', () => {
+//             const selectLang =langSelect.value;
+//             if (selectLang === 'he') {
+//                 window.location.href = 'index-he.html';
+//             } else {
+//                 window.location.href = 'index.html';
+//             }
+//         });
+//     }
+
+
+
+//     // Автоматическое перенаправление на иврит, если браузер he и находимся в ru
+
+//     if (!localStorage.getItem('langAutoRedirect')) {
+//         const isHebrewBrowser = navigator.language.startsWith('he');
+        
+//         const isRootPage = location.pathname.endsWith('index.html') || location.pathname === '/';
+        
+//         if (isHebrewBrowser && isRootPage) {
+//             localStorage.setItem('langAutoRedirect', 'true');
+//             window.location.href = 'index-he.html';
+//         }
+//     }
+// });
 
 
 
