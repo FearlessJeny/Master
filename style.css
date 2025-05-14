@@ -58,7 +58,6 @@ body {
 }
 
 .lang-switcher {
-    border: 2px solid red;
     /* position: fixed; */
     top: 1rem;
     right: 1rem;
